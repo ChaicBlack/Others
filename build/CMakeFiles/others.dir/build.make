@@ -73,7 +73,7 @@ CMakeFiles/others.dir/src/list2_8.cpp.o: CMakeFiles/others.dir/flags.make
 CMakeFiles/others.dir/src/list2_8.cpp.o: /Users/zihaoshen/projects/Others/src/list2_8.cpp
 CMakeFiles/others.dir/src/list2_8.cpp.o: CMakeFiles/others.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/zihaoshen/projects/Others/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/others.dir/src/list2_8.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/others.dir/src/list2_8.cpp.o -MF CMakeFiles/others.dir/src/list2_8.cpp.o.d -o CMakeFiles/others.dir/src/list2_8.cpp.o -c /Users/zihaoshen/projects/Others/src/list2_8.cpp
+	$(CMAKE_COMMAND) -E __run_co_compile --tidy="clang-tidy;-checks=-*,cppcoreguidelines-*;--extra-arg-before=--driver-mode=g++" --source=/Users/zihaoshen/projects/Others/src/list2_8.cpp -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/others.dir/src/list2_8.cpp.o -MF CMakeFiles/others.dir/src/list2_8.cpp.o.d -o CMakeFiles/others.dir/src/list2_8.cpp.o -c /Users/zihaoshen/projects/Others/src/list2_8.cpp
 
 CMakeFiles/others.dir/src/list2_8.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/others.dir/src/list2_8.cpp.i"
