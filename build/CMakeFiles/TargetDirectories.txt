@@ -1,0 +1,3 @@
+/Users/zihaoshen/projects/Others/build/CMakeFiles/others.dir
+/Users/zihaoshen/projects/Others/build/CMakeFiles/edit_cache.dir
+/Users/zihaoshen/projects/Others/build/CMakeFiles/rebuild_cache.dir
