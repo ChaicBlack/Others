@@ -13,6 +13,11 @@ template <typename Iterator, typename T> struct accumulate_block {
     result = std::accumulate(first, last, result);
   }
 };
+// There are some requirement for parallel version of accumulate which
+// are not in normal version.
+// 1. Type T can't be associative(float or double)
+// 2. Iterators are at least forward iterators, while normal is input.
+// 3. T must be default constructible to create result vector.
 template <typename Iterator, typename T>
 T parallel_accumulate(Iterator first, Iterator last, T init) {
   unsigned long const length = std::distance(first, last);
