@@ -4,6 +4,10 @@
 std::list<int> some_list;
 std::mutex some_mutex;
 void add_to_list(std::list<int> some_list, int new_value) {
+	// After C++17, you can omit the template argument, so
+	// std::lock_guard guard(some_mutex);
+	// can be written.
+	// And C++17 has scope_lock.
   std::lock_guard<std::mutex> guard(some_mutex);
   some_list.push_back(new_value);
 }
