@@ -1,5 +1,6 @@
 // This code reveals that you can't use member supplied
-// function without check.
+// function without check. Or don't pass pointers or
+// references outside the lock.
 class some_data {
   int a;
   std::string b;
