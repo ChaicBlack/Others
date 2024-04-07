@@ -20,6 +20,7 @@ public:
     // After C++17, using scoped_lock is a wiser choise
     // 16, 18 => written:
     // std::scoped_lock lock(lhs.m, rhs.m);
+    // notice: C++17 support class template parameter deduction
     std::swap(lhs.some_detail, rhs.some_detail);
   }
 };
