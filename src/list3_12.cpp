@@ -32,3 +32,10 @@ public:
     return connection.receive_data();
   }
 };
+/*还有一种方法，就是用static member，在C++11以后，static member就能用来
+ * 当成这两个的替代品而且没有data race.
+ * class my_class;
+ * my_class & get_my_class_instance(){
+ *   static my_class instance;
+ *   return instance;
+ * }*/
