@@ -1,13 +1,12 @@
+#include <condition_variable>
 #include <mutex>
 #include <queue>
-#include <condition_variable>
 
 std::mutex mut;
 std::queue<data_chunk> data_queue;
 std::condition_variable condition;
 
-void prepare_data_thread()
-{
+void prepare_data_thread() {
   data_chunk data = make_parepared_data();
   {
     std::unique_lock<std::mutex> lk(mut);
@@ -16,15 +15,14 @@ void prepare_data_thread()
   condition.notify_one();
 }
 
-void data_process_thread(){
-  while(true)
-  {
+void data_process_thread() {
+  while (true) {
     std::unique_lock<std::mutex> lk(mut);
-    condition.wait(lk, []{ return !data_queue.empty(); });
+    condition.wait(lk, [] { return !data_queue.empty(); });
     data_chunk data = data_queue.front();
     data_queue.pop();
     process_data(data);
-    if(is_last_data())
+    if (is_last_data())
       break;
   }
 }
