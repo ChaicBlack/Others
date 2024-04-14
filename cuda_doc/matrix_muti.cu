@@ -1,4 +1,6 @@
 // 这是不使用shared memory进行矩阵乘法的反面教材
+// A被从global memory里读取了B.width次
+// B被从global memory里读取了A.height次
 
 
 // Matrices are stored in row-major order:
