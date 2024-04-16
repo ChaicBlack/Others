@@ -61,3 +61,29 @@ __global__ void clusterHist_kernel(int *bins, const int nbins,
     atomicAdd(&lbins[i], smem[i]);
   }
 }
+
+// this launch option is for depending on the histogram's size
+// to deside whether use DSM or not
+{
+  cudaLaunchConfig_t config = {0};
+  config.gridDim = array_size / threads_per_block;
+  config.blockDim = threads_per_block;
+
+  int cluster_size = 2;
+  int nbin_per_block = nbins / cluster_size;
+
+  config.dynamicSmemBytes = nbins_per_block * sizeof(int);
+  CUDA_CHECK(::cudaFuncSetAttribute((void *)clusterHist_kernel,
+        cudaFuncAttributeMaxDynamicSharedMemorySize, config.dynamicSmemBytes));
+
+  cudaLaunchAttribute attribute[1];
+  attribute[0].id = cudaLaunchAttributeClusterDimension;
+  attribute[0].val.clusterDim.x = cluster_size;
+  attribute[0].val.clusterDim.y = 1;
+  attribute[0].val.clusterDim.z = 1;
+
+  config.numAttrs = 1;
+  config.attrs = attribute;
+
+  cudaLaunchKernelEx(&config, clusterHist_kernel, bins, nbins, nbins_per_block, input, array_size);
+}
