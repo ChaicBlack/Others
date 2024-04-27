@@ -19,6 +19,10 @@ __global__ void grid3D_linear(int nx, int ny, int nz, int id) {
     int x = tid % nx;
     int y = (tid / nx) % ny;
     int z = tid / (nx * ny);
+    /*这样其实非常低效，建议改成位运算
+     * int x = tid & 0x01ff;
+     * int y = (tid >> 9) & 0x01ff;
+     * int z = tid >> 18;*/
     a[z][y][x] = tid;
     b[z][y][x] = sqrtf((float)a[z][y][x]);
     if (tid == id) {
