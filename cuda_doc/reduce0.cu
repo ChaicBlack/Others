@@ -25,6 +25,7 @@ int main(int argc, char *argv[]) {
   double t1 = tim.lap_ms();
 
   tim.reset();
+  // N must be power of 2, to avoid rounding down errors
   for (int m = N / 2; m > 0; m /= 2) {
     int threads = std::min(256, m);
     int blocks = std::max(m / 256, 1);
