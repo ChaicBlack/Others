@@ -1,34 +1,29 @@
-enum WebEvent {
-    PageLoad,
-    PageUnload,
-    KeyPress(char),
-    Paste(String),
-    Click { x: i64, y: i64 },
+#![allow(dead_code)]
+
+enum Status {
+    Rich,
+    Poor,
 }
 
-fn inspect(event: WebEvent) {
-    match event {
-        WebEvent::PageLoad => println!("page loaded"),
-        WebEvent::PageUnload => println!("page unloaded"),
-        WebEvent::KeyPress(c) => println!("pressed '{}'.", c),
-        WebEvent::Paste(s) => println!("pasted \"{}\".", s),
-        WebEvent::Click { x, y } => {
-            println!("clicked at x={}, y={}.", x, y);
-        }
-    }
+enum Work {
+    Civilian,
+    Soldier,
 }
 
 fn main() {
-    let pressed = WebEvent::KeyPress('x');
-    // `to_owned()` creates an owned `String` from a string slice.
-    let pasted = WebEvent::Paste("my text".to_owned());
-    let click = WebEvent::Click { x: 20, y: 80 };
-    let load = WebEvent::PageLoad;
-    let unload = WebEvent::PageUnload;
+    use crate::Status::{Poor, Rich};
+    use crate::Work::*;
 
-    inspect(pressed);
-    inspect(pasted);
-    inspect(click);
-    inspect(load);
-    inspect(unload);
+    let status = Poor;
+    let work = Civilian;
+
+    match status {
+        Rich => println!("The rich have money"),
+        Poor => println!("The poor don't have money"),
+    }
+
+    match work {
+        Civilian => println!("Civilian work!"),
+        Soldier => println!("Soldier fight!"),
+    }
 }
