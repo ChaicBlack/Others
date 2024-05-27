@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/Users/zihaoshen/projects/Others/build",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -I/opt/homebrew/include -I/Users/zihaoshen/projects/Others/./include -I/opt/homebrew/Cellar/libomp/18.1.1/include  -fsanitize=address -g -std=gnu++20 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk -mmacosx-version-min=14.4 -o CMakeFiles/others.dir/pesudo_code/heart_beats.cpp.o -c /Users/zihaoshen/projects/Others/pesudo_code/heart_beats.cpp",
+  "file": "/Users/zihaoshen/projects/Others/pesudo_code/heart_beats.cpp",
+  "output": "CMakeFiles/others.dir/pesudo_code/heart_beats.cpp.o"
+}
+]

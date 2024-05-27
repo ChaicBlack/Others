@@ -11,6 +11,6 @@ set(CMAKE_BUILD_TYPE DEBUG)
 link_directories(/opt/homebrew/lib /opt/homebrew/Cellar/libomp/18.1.1/lib)
 include_directories(/opt/homebrew/include ./include /opt/homebrew/Cellar/libomp/18.1.1/include)
 
-add_executable(others cuda_doc/omp_sinsum.cpp)
+add_executable(others pesudo_code/heart_beats.cpp)
 
 target_link_libraries(others PRIVATE fmt /opt/homebrew/Cellar/libomp/18.1.1/lib/libomp.a)
